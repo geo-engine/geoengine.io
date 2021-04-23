@@ -3,16 +3,22 @@
 ## Short Description
 
 ## Add Raster Data
+![Add Raster Data](elephant-use-case/elephants-add-tree-cover.webp)
 
 ## Add Existing African Elephant Observations
+![Add African Elephants](elephant-use-case/elephants-add-and-clip-african-elephants.webp)
 
 ## Add ad-hoc Data of Forest Elephants
+![Upload Forest Elephants](elephant-use-case/elephants-upload-forest-elephants.webp)
 
 ## Combine Data to attach Forest Information to Elephant Observations
+![Combine Data](elephant-use-case/elephants-raster-vector-join.webp)
 
 ## Dashboard Functionality with Histograms
+![Histograms](elephant-use-case/elephants-histograms.webp)
 
 ## Workflow Lineage
+![Combine Data](elephant-use-case/elephants-lineage.webp)
 
 ## Data Citation
 
