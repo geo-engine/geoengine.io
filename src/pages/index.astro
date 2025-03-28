@@ -1,5 +1,7 @@
 ---
-
+import "../styles/global.css";
+import CarouselItem from "../components/CarouselItem.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <html lang="en">
@@ -11,6 +13,16 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Hero />
+		<div class="mb-10">
+			<h2 class="mb-2">Carousel 1</h2>
+			<CarouselItem />
+		</div>
+		<div class="mb-10">
+			<h2 class="mb-2">Carousel 2</h2>
+			<CarouselItem />
+		</div>
 	</body>
 </html>
+
+<script is:inline src="./node_modules/preline/preline.js"></script>
