@@ -10,6 +10,7 @@
         "check": "prettier --check . && eslint 'src/**/*.{js,astro}'"
     },
     "dependencies": {
+        "@fontsource/poppins": "^5.2.5",
         "@tailwindcss/vite": "^4.0.17",
         "astro": "^5.5.5",
         "preline": "^3.0.1",

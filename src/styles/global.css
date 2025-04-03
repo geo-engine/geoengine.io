@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@fontsource/poppins';
 
 @theme {
     --color-white: #fff;
