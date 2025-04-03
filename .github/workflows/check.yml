@@ -18,4 +18,4 @@ jobs:
             - name: Check formatting and lints
               run: npm run check
             - name: Build
-              uses: npm run build
+              run: npm run build
