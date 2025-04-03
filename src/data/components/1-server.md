@@ -1,5 +1,5 @@
 ---
-title: Geo Engine Server 
+title: Geo Engine Server
 subtitle: geoengine
 icon: ../../images/github-mark.svg
 links:

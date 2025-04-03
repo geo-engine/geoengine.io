@@ -1,8 +1,4 @@
-@import "tailwindcss";
-/* @source "node_modules/preline/dist"; */
-
-/* @import "preline/variants.css";
-@source "../../node_modules/preline/dist/*.js"; */
+@import 'tailwindcss';
 
 @theme {
     --color-white: #fff;
@@ -14,7 +10,7 @@
     --color-second-darkblue: #0f4493;
     --color-second-torquise: #0e8e89;
 
-    --font-sans: "Poppins", sans-serif;
+    --font-sans: 'Poppins', sans-serif;
     --font-serif: var(--font-sans);
 }
 
