@@ -1,16 +1,75 @@
 ---
+import '../styles/global.css';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import FeatureItem from '../components/FeatureItem.astro';
+import Components from '../components/Components.astro';
+import Component from '../components/Component.astro';
+import ComponentLink from '../components/ComponentLink.astro';
+import Spacer from '../components/Spacer.astro';
+import {Picture, Image} from 'astro:assets';
+import {getCollection} from 'astro:content';
 
+const features = await getCollection('features');
+const numberOfFeaturesOnLeftSide = Math.ceil(features.length / 2);
+const featuresLeft = features.slice(0, numberOfFeaturesOnLeftSide);
+const featuresRight = features.slice(numberOfFeaturesOnLeftSide);
+
+const components = await getCollection('components');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout>
+    <Spacer />
+    <Hero />
+    <Spacer />
+    <div id="features">
+        <Features>
+            {
+                featuresLeft.map((feature) => (
+                    <FeatureItem slot="left" title={feature.data.title}>
+                        <Image
+                            class="shrink-0 mt-2 size-8 text-gray-800 dark:text-white"
+                            slot="icon"
+                            src={feature.data.icon}
+                            alt={feature.data.title}
+                        />
+                        {feature.body}
+                    </FeatureItem>
+                ))
+            }
+            {
+                featuresRight.map((feature) => (
+                    <FeatureItem slot="right" title={feature.data.title}>
+                        <Image
+                            class="shrink-0 mt-2 size-8 text-gray-800 dark:text-white"
+                            slot="icon"
+                            src={feature.data.icon}
+                            alt={feature.data.title}
+                        />
+                        {feature.body}
+                    </FeatureItem>
+                ))
+            }
+        </Features>
+    </div>
+    <Spacer /><Spacer bg="green" /><Spacer />
+    <div id="components">
+        <Components>
+            {
+                components.map((component) => (
+                    <Component title={component.data.title} subtitle={component.data.subtitle}>
+                        <Picture class="max-h-64 max-w-64" slot="image" src={component.data.icon} alt={component.data.title} />
+                        {component.body}
+                        {component.data.links.map((link) => (
+                            <ComponentLink slot="link" href={link.url}>
+                                {link.title}
+                            </ComponentLink>
+                        ))}
+                    </Component>
+                ))
+            }
+        </Components>
+    </div>
+    <Spacer />
+</SiteLayout>
