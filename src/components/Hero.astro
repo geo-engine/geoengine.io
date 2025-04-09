@@ -1,7 +1,9 @@
 ---
+import {getImage} from 'astro:assets';
 import geoEngineTitle from '../images/2301_GeoEngine_Titelbild_01.png';
 
-const geoEngineBackground = 'url(' + geoEngineTitle.src + ')';
+const optimizedGeoEngineTitle = await getImage({src: geoEngineTitle});
+const geoEngineBackground = 'url(' + optimizedGeoEngineTitle.src + ')';
 ---
 
 <style define:vars={{geoEngineBackground}}>
