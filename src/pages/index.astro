@@ -46,7 +46,7 @@ const components = await getCollection('components');
                             src={feature.data.icon}
                             alt={feature.data.title}
                         />
-                        {feature.body}
+                        <Fragment set:html={feature.body} />
                     </FeatureItem>
                 ))
             }
