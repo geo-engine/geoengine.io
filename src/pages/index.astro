@@ -1,5 +1,4 @@
 ---
-import '../styles/global.css';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
@@ -47,7 +46,7 @@ const components = await getCollection('components');
                             src={feature.data.icon}
                             alt={feature.data.title}
                         />
-                        {feature.body}
+                        <Fragment set:html={feature.body} />
                     </FeatureItem>
                 ))
             }
