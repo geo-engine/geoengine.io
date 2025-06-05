@@ -9,6 +9,7 @@ import ComponentLink from '../components/ComponentLink.astro';
 import Spacer from '../components/Spacer.astro';
 import {Picture, Image} from 'astro:assets';
 import {getCollection} from 'astro:content';
+import Section from '../components/Section.astro';
 
 const features = await getCollection('features');
 const numberOfFeaturesOnLeftSide = Math.ceil(features.length / 2);
@@ -52,7 +53,15 @@ const components = await getCollection('components');
             }
         </Features>
     </div>
-    <Spacer /><Spacer bg="green" /><Spacer />
+    <Spacer />
+    <Section bg="blue" box>
+        <h2 class="mx-auto mb-0 text-xl font-semibold text-center">An open source, spatio-temporal data processing platform.</h2>
+        <p class="mx-auto mb-0 max-w-3xl text-lg text-gray-800 dark:text-neutral-200 text-center">
+            Geo Engine powers a wide range of applications, from individual scientific analyses to interactive web services, and is advanced
+            by contributors from both industry and academia.
+        </p>
+    </Section>
+    <Spacer />
     <div id="components">
         <Components>
             {
