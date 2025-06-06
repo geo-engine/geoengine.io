@@ -11,10 +11,10 @@ import {Picture, Image} from 'astro:assets';
 import {getCollection} from 'astro:content';
 import Section from '../components/Section.astro';
 
-const features = await getCollection('features');
-const numberOfFeaturesOnLeftSide = Math.ceil(features.length / 2);
-const featuresLeft = features.slice(0, numberOfFeaturesOnLeftSide);
-const featuresRight = features.slice(numberOfFeaturesOnLeftSide);
+const features = (await getCollection('features')).sort((a, b) => {
+    // Sort features by their lexicographical order
+    return a.id.localeCompare(b.id);
+});
 
 const components = await getCollection('components');
 ---
@@ -26,8 +26,8 @@ const components = await getCollection('components');
     <div id="features">
         <Features>
             {
-                featuresLeft.map((feature) => (
-                    <FeatureItem slot="left" title={feature.data.title}>
+                features.map((feature) => (
+                    <FeatureItem title={feature.data.title}>
                         <Image
                             class="shrink-0 mt-2 size-8 text-gray-800 dark:text-white"
                             slot="icon"
@@ -35,19 +35,6 @@ const components = await getCollection('components');
                             alt={feature.data.title}
                         />
                         {feature.body}
-                    </FeatureItem>
-                ))
-            }
-            {
-                featuresRight.map((feature) => (
-                    <FeatureItem slot="right" title={feature.data.title}>
-                        <Image
-                            class="shrink-0 mt-2 size-8 text-gray-800 dark:text-white"
-                            slot="icon"
-                            src={feature.data.icon}
-                            alt={feature.data.title}
-                        />
-                        <Fragment set:html={feature.body} />
                     </FeatureItem>
                 ))
             }
