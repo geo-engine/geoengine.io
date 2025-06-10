@@ -13,8 +13,4 @@ export default defineConfig({
     },
 
     integrations: [icon()],
-
-    experimental: {
-        svg: true,
-    },
 });
